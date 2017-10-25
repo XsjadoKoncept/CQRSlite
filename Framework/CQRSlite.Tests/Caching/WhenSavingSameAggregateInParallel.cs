@@ -8,14 +8,14 @@ using Xunit;
 
 namespace CQRSlite.Tests.Caching
 {
-    public class When_saving_same_aggregate_in_parallel
+    public class WhenSavingSameAggregateInParallel
     {
-        private CacheRepository _rep1;
-        private CacheRepository _rep2;
-        private TestAggregate _aggregate;
-        private TestInMemoryEventStore _testStore;
+        private readonly CacheRepository _rep1;
+        private readonly CacheRepository _rep2;
+        private readonly TestAggregate _aggregate;
+        private readonly TestInMemoryEventStore _testStore;
 
-        public When_saving_same_aggregate_in_parallel()
+        public WhenSavingSameAggregateInParallel()
         {
             var cache = new MemoryCache();
 

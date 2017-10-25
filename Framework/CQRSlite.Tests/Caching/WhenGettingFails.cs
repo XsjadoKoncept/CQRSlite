@@ -6,12 +6,12 @@ using Xunit;
 
 namespace CQRSlite.Tests.Caching
 {
-    public class When_getting_fails
+    public class WhenGettingFails
     {
-        private MemoryCache _cache;
-        private Guid _id;
+        private readonly MemoryCache _cache;
+        private readonly Guid _id;
 
-        public When_getting_fails()
+        public WhenGettingFails()
         {
             _cache = new MemoryCache();
             var testRep = new TestRepository();

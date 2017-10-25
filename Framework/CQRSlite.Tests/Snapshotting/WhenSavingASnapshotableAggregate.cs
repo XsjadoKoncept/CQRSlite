@@ -7,13 +7,13 @@ using Xunit;
 
 namespace CQRSlite.Tests.Snapshotting
 {
-    public class When_saving_a_snapshotable_aggregate
+    public class WhenSavingASnapshotableAggregate
     {
         private readonly TestSnapshotStore _snapshotStore;
         private readonly TestInMemoryEventStore _eventStore;
-        private CancellationToken _token;
+        private readonly CancellationToken _token;
 
-        public When_saving_a_snapshotable_aggregate()
+        public WhenSavingASnapshotableAggregate()
         {
             _eventStore = new TestInMemoryEventStore();
             _snapshotStore = new TestSnapshotStore();

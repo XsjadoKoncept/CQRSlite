@@ -11,11 +11,11 @@ using Xunit;
 
 namespace CQRSlite.Tests.Routing
 {
-    public class When_registering_handlers
+    public class WhenRegisteringHandlers
     {
         private readonly TestServiceLocator _locator;
 
-        public When_registering_handlers()
+        public WhenRegisteringHandlers()
         {
             _locator = new TestServiceLocator();
             var register = new RouteRegistrar(_locator);

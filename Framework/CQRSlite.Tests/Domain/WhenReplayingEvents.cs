@@ -4,11 +4,11 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_replaying_events
+    public class WhenReplayingEvents
     {
-        private TestAggregate _aggregate;
+        private readonly TestAggregate _aggregate;
 
-        public When_replaying_events()
+        public WhenReplayingEvents()
         {
             _aggregate = new TestAggregate(Guid.NewGuid());
         }

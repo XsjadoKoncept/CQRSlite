@@ -7,12 +7,12 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_getting_aggregate_without_contructor
+    public class WhenGettingAggregateWithoutContructor
     {
-	    private Guid _id;
+	    private readonly Guid _id;
 	    private readonly Repository _repository;
 
-        public When_getting_aggregate_without_contructor()
+        public WhenGettingAggregateWithoutContructor()
         {
             _id = Guid.NewGuid();
             var eventStore = new TestInMemoryEventStore();

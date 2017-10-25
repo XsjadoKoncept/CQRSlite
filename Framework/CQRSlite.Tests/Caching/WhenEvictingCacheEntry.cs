@@ -9,14 +9,14 @@ using Xunit;
 
 namespace CQRSlite.Tests.Caching
 {
-    public class When_evicting_cache_entry
+    public class WhenEvictingCacheEntry
     {
-        private CacheRepository _rep;
-        private TestAggregate _aggregate;
-        private ICache _cache;
-        private ConcurrentDictionary<Guid, SemaphoreSlim> _locks;
+        private readonly CacheRepository _rep;
+        private readonly TestAggregate _aggregate;
+        private readonly ICache _cache;
+        private readonly ConcurrentDictionary<Guid, SemaphoreSlim> _locks;
 
-        public When_evicting_cache_entry()
+        public WhenEvictingCacheEntry()
         {
             _cache = new TestMemoryCache();
             _rep = new CacheRepository(new TestRepository(), new TestEventStore(), _cache);

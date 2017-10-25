@@ -6,14 +6,14 @@ using Xunit;
 
 namespace CQRSlite.Tests.Caching
 {
-    public class When_saving_fails
+    public class WhenSavingFails
     {
-        private CacheRepository _rep;
-        private TestAggregate _aggregate;
-        private TestRepository _testRep;
-        private ICache _cache;
+        private readonly CacheRepository _rep;
+        private readonly TestAggregate _aggregate;
+        private readonly TestRepository _testRep;
+        private readonly ICache _cache;
 
-        public When_saving_fails()
+        public WhenSavingFails()
         {
             _cache = new MemoryCache();
             _testRep = new TestRepository();

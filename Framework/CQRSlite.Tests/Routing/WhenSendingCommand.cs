@@ -9,11 +9,11 @@ using CQRSlite.Domain.Exception;
 
 namespace CQRSlite.Tests.Routing
 {
-    public class When_sending_command
+    public class WhenSendingCommand
     {
-        private Router _router;
+        private readonly Router _router;
 
-        public When_sending_command()
+        public WhenSendingCommand()
         {
             _router = new Router();
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using CQRSlite.Domain;
 using CQRSlite.Tests.Substitutes;
@@ -7,15 +6,15 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_saving_using_repository_with_event_publisher
+    public class WhenSavingUsingRepositoryWithEventPublisher
     {
-        private TestInMemoryEventStore _eventStore;
-        private TestAggregateNoParameterLessConstructor _aggregate;
-        private TestEventPublisher _eventPublisher;
-        private ISession _session;
-        private Repository _rep;
+        private readonly TestInMemoryEventStore _eventStore;
+        private readonly TestAggregateNoParameterLessConstructor _aggregate;
+        private readonly TestEventPublisher _eventPublisher;
+        private readonly ISession _session;
+        private readonly Repository _rep;
 
-        public When_saving_using_repository_with_event_publisher()
+        public WhenSavingUsingRepositoryWithEventPublisher()
         {
             _eventStore = new TestInMemoryEventStore();
             _eventPublisher = new TestEventPublisher();

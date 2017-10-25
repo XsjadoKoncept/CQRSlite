@@ -7,11 +7,11 @@ using Xunit;
 
 namespace CQRSlite.Tests.Routing
 {
-    public class When_publishing_events
+    public class WhenPublishingEvents
     {
-        private Router _router;
+        private readonly Router _router;
 
-        public When_publishing_events()
+        public WhenPublishingEvents()
         {
             _router = new Router();
         }

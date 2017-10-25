@@ -7,14 +7,14 @@ using Xunit;
 
 namespace CQRSlite.Tests.Caching
 {
-    public class When_getting_aggregate
+    public class WhenGettingAggregate
     {
-        private CacheRepository _rep;
-        private TestAggregate _aggregate;
-        private ICache _cache;
-        private TestEventStore _testEventStore;
+        private readonly CacheRepository _rep;
+        private readonly TestAggregate _aggregate;
+        private readonly ICache _cache;
+        private readonly TestEventStore _testEventStore;
 
-        public When_getting_aggregate()
+        public WhenGettingAggregate()
         {
             _testEventStore = new TestEventStore();
             _cache = new MemoryCache();

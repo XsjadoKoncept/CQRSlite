@@ -6,12 +6,12 @@ using Xunit;
 
 namespace CQRSlite.Tests.Snapshotting
 {
-    public class When_getting_snapshotable_aggreate
+    public class WhenGettingSnapshotableAggreate
     {
-        private TestSnapshotStore _snapshotStore;
-        private TestSnapshotAggregate _aggregate;
+        private readonly TestSnapshotStore _snapshotStore;
+        private readonly TestSnapshotAggregate _aggregate;
 
-        public When_getting_snapshotable_aggreate()
+        public WhenGettingSnapshotableAggreate()
         {
             var eventStore = new TestInMemoryEventStore();
             _snapshotStore = new TestSnapshotStore();

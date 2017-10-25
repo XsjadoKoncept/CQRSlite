@@ -7,11 +7,11 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_adding_aggregates_to_repository
+    public class WhenAddingAggregatesToRepository
     {
-        private Session _session;
+        private readonly Session _session;
 
-        public When_adding_aggregates_to_repository()
+        public WhenAddingAggregatesToRepository()
         {
             var eventStore = new TestInMemoryEventStore();
             _session = new Session(new Repository(eventStore));

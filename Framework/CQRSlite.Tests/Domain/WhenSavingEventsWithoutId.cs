@@ -7,13 +7,13 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_saving_events_without_id
+    public class WhenSavingEventsWithoutId
     {
-        private TestInMemoryEventStore _eventStore;
-        private TestAggregate _aggregate;
-        private Repository _rep;
+        private readonly TestInMemoryEventStore _eventStore;
+        private readonly TestAggregate _aggregate;
+        private readonly Repository _rep;
 
-        public When_saving_events_without_id()
+        public WhenSavingEventsWithoutId()
         {
             _eventStore = new TestInMemoryEventStore();
             _rep = new Repository(_eventStore);

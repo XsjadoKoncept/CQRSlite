@@ -7,15 +7,15 @@ using Xunit;
 
 namespace CQRSlite.Tests.Domain
 {
-    public class When_saving_stale_data
+    public class WhenSavingStaleData
     {
-        private TestInMemoryEventStore _eventStore;
-        private TestAggregate _aggregate;
-        private Repository _rep;
-        private Session _session;
+        private readonly TestInMemoryEventStore _eventStore;
+        private readonly TestAggregate _aggregate;
+        private readonly Repository _rep;
+        private readonly Session _session;
 
 
-        public When_saving_stale_data()
+        public WhenSavingStaleData()
         {
             _eventStore = new TestInMemoryEventStore();
             _rep = new Repository(_eventStore);
