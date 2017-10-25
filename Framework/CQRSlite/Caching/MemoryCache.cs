@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CQRSlite.Domain;
-#if NET452
+#if NET47
 using System.Runtime.Caching;
 #else
 using Microsoft.Extensions.Caching.Memory;
@@ -9,12 +9,13 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace CQRSlite.Caching
 {
+    /// <inheritdoc />
     /// <summary>
     /// A cache implementation that has cache in memory and 15 minutes sliding expiration.
     /// </summary>
     public class MemoryCache : ICache
     {
-#if NET452
+#if NET47
         private readonly System.Runtime.Caching.MemoryCache _cache;
         private Func<CacheItemPolicy> _policyFactory;
 #else
@@ -25,7 +26,7 @@ namespace CQRSlite.Caching
         public MemoryCache()
         {
 
-#if NET452
+#if NET47
             _cache = System.Runtime.Caching.MemoryCache.Default;
             _policyFactory = () => new CacheItemPolicy {
                 SlidingExpiration = TimeSpan.FromMinutes(15)
@@ -42,7 +43,7 @@ namespace CQRSlite.Caching
 
         public Task<bool> IsTracked(Guid id)
         {
-#if NET452
+#if NET47
             return Task.FromResult(_cache.Contains(id.ToString()));
 #else
             return Task.FromResult(_cache.TryGetValue(id, out var o) && o != null);
@@ -51,7 +52,7 @@ namespace CQRSlite.Caching
 
         public Task Set(Guid id, AggregateRoot aggregate)
         {
-#if NET452
+#if NET47
             _cache.Add(id.ToString(), aggregate, _policyFactory.Invoke());
 #else
             _cache.Set(id, aggregate, _cacheOptions);
@@ -61,8 +62,8 @@ namespace CQRSlite.Caching
 
         public Task<AggregateRoot> Get(Guid id)
         {
-#if NET452
-            return Task.FromResult((AggregateRoot)_cache.Get(id.ToString()));
+#if NET47
+            return Task.FromResult((AggregateRoot) _cache.Get(id.ToString()));
 #else
             return Task.FromResult((AggregateRoot) _cache.Get(id));
 #endif
@@ -70,7 +71,7 @@ namespace CQRSlite.Caching
 
         public Task Remove(Guid id)
         {
-#if NET452
+#if NET47
             _cache.Remove(id.ToString());
 #else
             _cache.Remove(id);
@@ -80,7 +81,7 @@ namespace CQRSlite.Caching
 
         public void RegisterEvictionCallback(Action<Guid> action)
         {
-#if NET452
+#if NET47
             _policyFactory = () => new CacheItemPolicy
             {
                 SlidingExpiration = TimeSpan.FromMinutes(15),
