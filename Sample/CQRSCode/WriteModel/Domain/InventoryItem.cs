@@ -7,8 +7,16 @@ namespace CQRSCode.WriteModel.Domain
     public class InventoryItem : AggregateRoot
     {
         private bool _activated;
+		
+	    public InventoryItem(Guid id, string name)
+	    {
+		    Id = id;
+		    ApplyChange(new InventoryItemCreated(id, name));
+	    }
 
-        private void Apply(InventoryItemCreated e)
+	    public InventoryItem() { }
+
+		private void Apply(InventoryItemCreated e)
         {
             _activated = true;
         }
@@ -30,7 +38,6 @@ namespace CQRSCode.WriteModel.Domain
             ApplyChange(new ItemsRemovedFromInventory(Id, count));
         }
 
-
         public void CheckIn(int count)
         {
             if(count <= 0) throw new InvalidOperationException("must have a count greater than 0 to add to inventory");
@@ -42,12 +49,5 @@ namespace CQRSCode.WriteModel.Domain
             if(!_activated) throw new InvalidOperationException("already deactivated");
             ApplyChange(new InventoryItemDeactivated(Id));
         }
-
-        private InventoryItem(){}
-        public InventoryItem(Guid id, string name)
-        {
-            Id = id;
-            ApplyChange(new InventoryItemCreated(id, name));
-        }
-    }
+	}
 }
